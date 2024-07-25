@@ -9,3 +9,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# Airports seed
+airports = %i[SVO DME VKO JFK LED LAX]
+
+airports.each do |airport|
+  Aiport.find_or_create_by!(code: airport)
+  puts "Airport find or created - #{airport}"
+end
