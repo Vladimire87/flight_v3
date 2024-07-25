@@ -40,5 +40,11 @@ module FlightV3
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    # Automatically annotate models after migrations
+    config.after_initialize do
+      require 'annotate'
+      Annotate.load_tasks
+      AnnotateTask.new.invoke('models')
+    end
   end
 end
