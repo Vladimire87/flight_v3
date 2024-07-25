@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: aiports
+# Table name: airports
 #
 #  id         :integer          not null, primary key
 #  code       :string
@@ -9,9 +9,9 @@
 #
 # Indexes
 #
-#  index_aiports_on_code  (code) UNIQUE
+#  index_airports_on_code  (code) UNIQUE
 #
-class Aiport < ApplicationRecord
+class Airport < ApplicationRecord
   has_many :arriving_flights, class_name: 'Flight', foreign_key: 'arrival_airport_id'
   has_many :departing_flights, class_name: 'Flight', foreign_key: 'departure_airport_id'
 end
