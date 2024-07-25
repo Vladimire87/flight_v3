@@ -1,0 +1,2 @@
+class Aiport < ApplicationRecord
+end
