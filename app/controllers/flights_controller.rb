@@ -7,9 +7,18 @@ class FlightsController < ApplicationController
 
     @flights = if params[:from].present? && params[:to].present? && params[:date].present?
                  flight_search
-               else
+                else
                  Flight.none
                end
+
+    return unless @flights.present?
+
+    @search_details = {
+      from: Airport.find(params[:from]).code,
+      to: Airport.find(params[:to]).code,
+      date: params[:date],
+      passengers: params[:passengers]
+    }
   end
 
   private

@@ -3,5 +3,31 @@
   <p>Find me in app/views/flights/index.html.erb</p>
 </div>
 <%= render 'search'%>
-<hr>
-<%= @flights.count %>
+<% if @flights.present? %>
+  <div class="card mb-4">
+    <div class="card-body">
+      <h2 class="card-title text-center">Flight Search Results</h2>
+      <p class="card-text text-center">
+        From: <%= @search_details[:from] %> |
+        To: <%= @search_details[:to] %> |
+        Date: <%= @search_details[:date].to_date.strftime('%B %d, %Y') %> |
+        Passengers: <%= @search_details[:passengers] %></p>
+    </div>
+  </div>
+<% end %>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead class="table-light">
+      <tr>
+        <th>Flight</th>
+        <th>Departure</th>
+        <th>Flight Time</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @flights %>
+    </tbody>
+  </table>
+</div>
