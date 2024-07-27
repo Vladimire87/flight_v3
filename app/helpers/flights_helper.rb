@@ -7,9 +7,9 @@ module FlightsHelper
       minutes = minutes.to_s.prepend '0'
     end
     if hours < 1
-      "Travel time: #{minutes}m"
+      "#{minutes}m"
     else
-      "Travel time: #{hours}h #{minutes}m"
+      "#{hours}h #{minutes}m"
     end
   end
 end

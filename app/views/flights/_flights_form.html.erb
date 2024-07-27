@@ -15,7 +15,7 @@
           <tr>
             <td>VL<%= flight.id %> </td>
             <td><%= flight.start_datetime.strftime('%A, %B %e, %Y - %H:%M') %></td>
-            <td><%= min_to_hours(flight.flight_duration) %></td>
+            <td>Travel time: <%= min_to_hours(flight.flight_duration) %></td>
             <td class="text-primary fw-bold"><%= number_to_currency(rand(199..4000), unit: "$ ", separator: ".", delimiter: "", format: "%u%n") %></td>
             <td>
               <%= hidden_field_tag :passengers, @search_details[:passengers] %>
