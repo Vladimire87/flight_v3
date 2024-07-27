@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: bookings
+#
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  flight_id  :integer          not null
+#
+# Indexes
+#
+#  index_bookings_on_flight_id  (flight_id)
+#
+# Foreign Keys
+#
+#  flight_id  (flight_id => flights.id)
+#
 class Booking < ApplicationRecord
   belongs_to :flight
+  has_many :passengers
 end
