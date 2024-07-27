@@ -5,9 +5,9 @@ class FlightsController < ApplicationController
     @airports = Airport.all
     @flight_dates = Flight.pluck(:start_datetime).map(&:to_date).uniq.sort
 
-    @flights = if params[:from].present? && params[:to].present? && params[:date].present?
+    @flights = if search_params[:from].present? && search_params[:to].present? && search_params[:date].present?
                  flight_search
-                else
+               else
                  Flight.none
                end
 
@@ -30,6 +30,6 @@ class FlightsController < ApplicationController
   end
 
   def search_params
-    params.permit(:from, :to, :date, :passengers)
+    params.permit(:from, :to, :date, :passengers, :commit)
   end
 end

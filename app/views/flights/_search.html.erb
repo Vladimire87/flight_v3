@@ -1,22 +1,23 @@
 <%= form_with url: flights_path, method: :get, local: true do |f| %>
-  <div class="row mb-3 d-flex justify-content-center">
+  <div class="row mb-5 d-flex justify-content-center">
     <div class="col-2">
       <%= f.collection_select :from, @airports, :id, :code,
-        {prompt: 'From'},
-        {class: 'form-select form-select-lg'} %>
+        {prompt: 'From', selected: params[:from]},
+        {class: 'form-select form-select-lg'}
+         %>
     </div>
     <div class="col-2">
       <%= f.collection_select :to, @airports, :id, :code,
-        {prompt: 'To'},
+        {prompt: 'To', selected: params[:to]},
         {class: 'form-select form-select-lg'} %>
     </div>
     <div class="col-2">
-      <%= f.select :date, options_for_select(@flight_dates.map{|date| [date, date]}),
+      <%= f.select :date, options_for_select(@flight_dates.map{|date| [date, date]}, params[:date]),
         {prompt: 'Departure'},
         {class: 'form-select form-select-lg'} %>
     </div>
     <div class="col-2">
-      <%= f.select :passengers, options_for_select(1..4),
+      <%= f.select :passengers, options_for_select(1..4, params[:passengers]),
         {prompt: 'Passengers'},
         {class: 'form-select form-select-lg'} %>
     </div>
