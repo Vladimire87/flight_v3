@@ -1,0 +1,70 @@
+<%= form_with model: @booking do |f| %>
+  <%= f.label :hello %>
+  <%= f.fields_for :passengers do |passenger| %>
+    <%=  passenger.text_field :full_name %>
+  <% end %>
+<% end %>
+<form class="card p-4" w-tid="58">
+  <h5 class="mb-3" w-tid="59">Passenger Information</h5>
+  <div class="table-responsive mb-4" w-tid="60">
+    <table class="table table-hover" w-tid="61">
+      <thead w-tid="62">
+        <tr w-tid="63">
+          <th w-tid="64">Passenger</th>
+          <th w-tid="65">Full Name</th>
+          <th w-tid="66">Date of Birth</th>
+          <th w-tid="67">Passport Number</th>
+        </tr>
+      </thead>
+      <tbody w-tid="68">
+        <tr w-tid="69">
+          <td w-tid="70">Passenger 1</td>
+          <td w-tid="71"><input type="text" class="form-control" name="passenger1-name" required="" w-tid="72"></td>
+          <td w-tid="73"><input type="date" class="form-control" name="passenger1-dob" required="" w-tid="74"></td>
+          <td w-tid="75"><input type="text" class="form-control" name="passenger1-passport" required="" w-tid="76"></td>
+        </tr>
+        <tr w-tid="77">
+          <td w-tid="78">Passenger 2</td>
+          <td w-tid="79"><input type="text" class="form-control" name="passenger2-name" required="" w-tid="80"></td>
+          <td w-tid="81"><input type="date" class="form-control" name="passenger2-dob" required="" w-tid="82"></td>
+          <td w-tid="83"><input type="text" class="form-control" name="passenger2-passport" required="" w-tid="84"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h5 class="mb-3" w-tid="85">Contact Information</h5>
+  <div class="mb-3" w-tid="86">
+    <label for="email" class="form-label" w-tid="87">Email address</label>
+    <input type="email" class="form-control" id="email" required="" w-tid="88">
+  </div>
+  <div class="mb-3" w-tid="89">
+    <label for="phone" class="form-label" w-tid="90">Phone Number</label>
+    <input type="tel" class="form-control" id="phone" required="" w-tid="91">
+  </div>
+  <h5 class="mb-3" w-tid="92">Payment Information</h5>
+  <div class="mb-3" w-tid="93">
+    <label for="card-number" class="form-label" w-tid="94">Card Number</label>
+    <input type="text" class="form-control" id="card-number" required="" w-tid="95">
+  </div>
+  <div class="row" w-tid="96">
+    <div class="col-md-6 mb-3" w-tid="97">
+      <label for="expiry-date" class="form-label" w-tid="98">Expiry Date</label>
+      <input type="text" class="form-control" id="expiry-date" placeholder="MM/YY" required="" w-tid="99">
+    </div>
+    <div class="col-md-6 mb-3" w-tid="100">
+      <label for="cvv" class="form-label" w-tid="101">CVV</label>
+      <input type="text" class="form-control" id="cvv" required="" w-tid="102">
+    </div>
+  </div>
+  <div class="mb-3" w-tid="103">
+    <label for="cardholder-name" class="form-label" w-tid="104">Cardholder Name</label>
+    <input type="text" class="form-control" id="cardholder-name" required="" w-tid="105">
+  </div>
+  <div class="mb-3 form-check" w-tid="106">
+    <input type="checkbox" class="form-check-input" id="terms" required="" w-tid="107">
+    <label class="form-check-label" for="terms" w-tid="108">I agree to the terms and conditions</label>
+  </div>
+  <div class="d-grid gap-2" w-tid="109">
+    <button type="submit" class="btn btn-primary btn-lg" w-tid="110">Confirm Booking</button>
+  </div>
+</form>
