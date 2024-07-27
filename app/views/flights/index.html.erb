@@ -14,22 +14,7 @@
         Passengers: <%= @search_details[:passengers] %></p>
     </div>
   </div>
-  <div class="table-responsive">
-    <table class="table table-hover">
-      <thead class="table-light">
-        <tr>
-          <th>Flight</th>
-          <th>Departure</th>
-          <th>Flight Time</th>
-          <th>Price</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render @flights %>
-      </tbody>
-    </table>
-  </div>
+  <%= render 'flights_form' %>
 <% elsif @flights.count <= 0 %>
   <%= render 'no_flights' %>
 <% end %>

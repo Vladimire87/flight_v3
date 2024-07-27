@@ -1,0 +1,35 @@
+<%= form_with url: new_booking_path, method: :get, local: true do |f|%>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead class="table-light">
+        <tr>
+          <th>Flight</th>
+          <th>Departure</th>
+          <th>Flight Time</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @flights.each do |flight| %>
+          <tr>
+            <td>VL<%= flight.id %> </td>
+            <td><%= flight.start_datetime.strftime('%A, %B %e, %Y - %H:%M') %></td>
+            <td><%= min_to_hours(flight.flight_duration) %></td>
+            <td class="text-primary fw-bold"><%= number_to_currency(rand(199..4000), unit: "$ ", separator: ".", delimiter: "", format: "%u%n") %></td>
+            <td>
+              <%= hidden_field_tag :passengers, @search_details[:passengers] %>
+              <%= hidden_field_tag :flight_id, flight.id %>
+              <%# <button class="btn btn-primary btn-sm">Book Now</button> %>
+              <%= link_to 'Book Now', new_booking_path(
+                flight_id: flight.id,
+                passengers: @search_details[:passengers]
+                ),
+                class: "btn btn-primary btn-sm" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
