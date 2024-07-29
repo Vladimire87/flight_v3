@@ -1,8 +1,12 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: bookings
 #
 #  id         :integer          not null, primary key
+#  email      :string
+#  phone      :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  flight_id  :integer          not null

@@ -1,0 +1,38 @@
+<div class="container mt-5" w-tid="23">
+  <div class="row justify-content-center" w-tid="24">
+    <div class="col-md-8" w-tid="25">
+      <div class="card shadow-sm" w-tid="26">
+        <div class="card-body text-center" w-tid="27">
+          <i class="bi bi-check-circle-fill confirmation-icon mb-4" w-tid="28"></i>
+          <h1 class="card-title mb-4" w-tid="29">Thank You for Your Booking!</h1>
+          <p class="card-text fs-5 mb-4" w-tid="30">Your flight has been successfully booked.</p>
+          <div class="alert alert-info" role="alert" w-tid="31">
+            <strong w-tid="32">Booking Reference:</strong> VLAD-<%= @booking.id %>
+          </div>
+          <hr w-tid="33">
+          <h4 class="mb-3" w-tid="34">Flight Details</h4>
+          <div class="row mb-4" w-tid="35">
+            <div class="col-md-6" w-tid="36">
+              <h5 w-tid="37">Outbound Flight</h5>
+              <p w-tid="38">
+                <strong w-tid="39">Flight:</strong> VL<%= @booking.flight.id %><br w-tid="40">
+                <strong w-tid="41">From:</strong> <%= @booking.flight.departure_airport.code %><br w-tid="42">
+                <strong w-tid="43">To:</strong> <%= @booking.flight.arrival_airport.code %><br w-tid="44">
+                <strong w-tid="45">Date:</strong> <%= @booking.flight.start_datetime.strftime('%A, %B %e, %Y') %><br w-tid="46">
+                <strong w-tid="47">Departure:</strong> <%= @booking.flight.start_datetime.strftime(' %H:%M') %><br w-tid="48">
+              </p>
+            </div>
+            <div class="col-md-6" w-tid="50">
+              <h5 w-tid="51">Passenger Information</h5>
+              <p w-tid="52">
+                <% @booking.passengers.each_with_index do |passenger, index|  %>
+                  <strong w-tid="53">Passenger <%= index + 1%>:</strong> <%= passenger.full_name %><br>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
