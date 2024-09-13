@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+      }
+      h1 {
+        color: #007bff;
+      }
+      .details {
+        margin-top: 20px;
+      }
+      .details p {
+        margin: 10px 0;
+      }
+      .footer {
+        margin-top: 30px;
+        font-size: 0.9em;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Booking Confirmation</h1>
+      <p>Dear <%= @booking.passengers.first.full_name %>,</p>
+      <p>Thank you for your booking! We are pleased to confirm the details of your reservation below:</p>
+      <div class="details">
+        <p><strong>Booking Number:</strong> <%= @booking.id %></p>
+        <p><strong>Date:</strong> <%= @booking.flight.start_datetime.strftime('%B %d, %Y') %></p>
+        <p><strong>Time:</strong> <%= @booking.flight.start_datetime.strftime('%I:%M %p') %></p>
+        <p><strong>Location:</strong> <%= @booking.flight.departure_airport.code %></p>
+      </div>
+      <p>If you have any questions or need further assistance, please do not hesitate to contact us.</p>
+      <p>Best regards,</p>
+      <p>The Team</p>
+      <div class="footer">
+        <p>Company Name</p>
+        <p>1234 Address St, City, State, 56789</p>
+        <p>Phone: (123) 456-7890</p>
+        <p>Email: support@company.com</p>
+      </div>
+    </div>
+  </body>
+</html>

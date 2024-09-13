@@ -10,6 +10,8 @@ gem 'rails', '~> 7.1.3', '>= 7.1.3.4'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
+gem "sassc-rails"
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 
@@ -32,7 +34,7 @@ gem 'cssbundling-rails'
 gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", ">= 4.0.1"
+gem "redis", ">= 4.0.1"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -58,6 +60,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
+  gem "letter_opener", "~> 1.10"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"

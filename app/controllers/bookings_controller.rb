@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new booking_params
     @booking.flight_id = @flight.id
     if @booking.save
+      PassengerMailer.booking_confirmation(@booking).deliver_later
       redirect_to booking_path(@booking), notice: 'Booking was successfully created.'
     else
       render :new, status: :unprocessable_entity
